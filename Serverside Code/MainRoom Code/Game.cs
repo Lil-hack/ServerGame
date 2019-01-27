@@ -41,11 +41,15 @@ namespace MushroomsUnity3DExample {
 
 		// This method is called whenever a player joins the game
 		public override void UserJoined(Player player) {
-       
 
+            player.posx = (float) Convert.ToDouble(player.JoinData["posx"]);
+            player.posy = (float) Convert.ToDouble(player.JoinData["posy"]);
+            player.posz = (float) Convert.ToDouble(player.JoinData["posz"]);
+            player.skin = (float) Convert.ToDouble(player.JoinData["skin"]);
             foreach (Player pl in Players) {
-				if(pl.ConnectUserId != player.ConnectUserId) {
-					pl.Send("PlayerJoined", player.ConnectUserId, Convert.ToDouble(player.JoinData["posx"]), Convert.ToDouble(player.JoinData["posy"]), Convert.ToDouble(player.JoinData["posz"]), Convert.ToDouble(player.JoinData["skin"]));
+     
+                if (pl.ConnectUserId != player.ConnectUserId) {
+					pl.Send("PlayerJoined", player.ConnectUserId, player.posx, player.posy, player.posz, player.skin);
 					player.Send("PlayerJoined", pl.ConnectUserId, pl.posx,pl.posy, pl.posz, Convert.ToDouble(pl.JoinData["skin"]));
 				}
 			}
