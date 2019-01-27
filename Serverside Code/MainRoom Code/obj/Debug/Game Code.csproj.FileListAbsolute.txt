@@ -20,3 +20,10 @@ C:\Users\akashkin\Desktop\ServerGame\Serverside Code\MainRoom Code\obj\Debug\Gam
 C:\Users\akashkin\Desktop\ServerGame\Serverside Code\MainRoom Code\obj\Debug\Game Code.csproj.CopyComplete
 C:\Users\akashkin\Desktop\ServerGame\Serverside Code\MainRoom Code\obj\Debug\MushroomsUnity3DExample.dll
 C:\Users\akashkin\Desktop\ServerGame\Serverside Code\MainRoom Code\obj\Debug\MushroomsUnity3DExample.pdb
+C:\Users\Administrator\Documents\GitHub\ServerGame\Serverside Code\MainRoom Code\bin\Debug\MushroomsUnity3DExample.dll
+C:\Users\Administrator\Documents\GitHub\ServerGame\Serverside Code\MainRoom Code\bin\Debug\MushroomsUnity3DExample.pdb
+C:\Users\Administrator\Documents\GitHub\ServerGame\Serverside Code\MainRoom Code\obj\Debug\Game Code.csprojAssemblyReference.cache
+C:\Users\Administrator\Documents\GitHub\ServerGame\Serverside Code\MainRoom Code\obj\Debug\Game Code.csproj.CoreCompileInputs.cache
+C:\Users\Administrator\Documents\GitHub\ServerGame\Serverside Code\MainRoom Code\obj\Debug\Game Code.csproj.CopyComplete
+C:\Users\Administrator\Documents\GitHub\ServerGame\Serverside Code\MainRoom Code\obj\Debug\MushroomsUnity3DExample.dll
+C:\Users\Administrator\Documents\GitHub\ServerGame\Serverside Code\MainRoom Code\obj\Debug\MushroomsUnity3DExample.pdb

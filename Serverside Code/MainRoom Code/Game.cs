@@ -8,7 +8,7 @@ namespace MushroomsUnity3DExample {
 		public float posx = 0;
 		 public float posy = 0;
         public float posz = 0;
-
+        public int skin = 0;
 
 
     }
@@ -46,7 +46,7 @@ namespace MushroomsUnity3DExample {
             foreach (Player pl in Players) {
 				if(pl.ConnectUserId != player.ConnectUserId) {
 					pl.Send("PlayerJoined", player.ConnectUserId, 0, 0,0);
-					player.Send("PlayerJoined", pl.ConnectUserId, pl.posx,pl.posy, pl.posz);
+					player.Send("PlayerJoined", pl.ConnectUserId, pl.posx,pl.posy, pl.posz,pl.skin);
 				}
 			}
 
@@ -79,11 +79,7 @@ namespace MushroomsUnity3DExample {
                     Broadcast("Rotation", player.ConnectUserId, message.GetFloat(0));
                     break;
 
-                case "Skin":
-          
-                    Broadcast("Skin", player.ConnectUserId, message.GetInt(0));
-                    break;
-
+               
 
             }
 		}
