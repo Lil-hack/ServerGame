@@ -45,7 +45,7 @@ namespace MushroomsUnity3DExample {
 
             foreach (Player pl in Players) {
 				if(pl.ConnectUserId != player.ConnectUserId) {
-					pl.Send("PlayerJoined", player.ConnectUserId, 1, 1,0, Convert.ToDouble(player.JoinData["skin"]));
+					pl.Send("PlayerJoined", player.ConnectUserId, Convert.ToDouble(player.JoinData["posx"]), Convert.ToDouble(player.JoinData["posy"]), Convert.ToDouble(player.JoinData["posz"]), Convert.ToDouble(player.JoinData["skin"]));
 					player.Send("PlayerJoined", pl.ConnectUserId, pl.posx,pl.posy, pl.posz, Convert.ToDouble(pl.JoinData["skin"]));
 				}
 			}
