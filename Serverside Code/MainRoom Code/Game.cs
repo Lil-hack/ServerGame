@@ -5,10 +5,10 @@ using PlayerIO.GameLibrary;
 namespace MushroomsUnity3DExample {
 
 	public class Player : BasePlayer {
-		public float posx = 0;
+		public float posx = 1;
 		 public float posy = 0;
         public float posz = 0;
-        public int skin = 0;
+        public float skin = 0;
 
 
     }
@@ -45,7 +45,7 @@ namespace MushroomsUnity3DExample {
 
             foreach (Player pl in Players) {
 				if(pl.ConnectUserId != player.ConnectUserId) {
-					pl.Send("PlayerJoined", player.ConnectUserId, 0, 0,0,0);
+					pl.Send("PlayerJoined", player.ConnectUserId, 1, 1,0,0);
 					player.Send("PlayerJoined", pl.ConnectUserId, pl.posx,pl.posy, pl.posz,pl.skin);
 				}
 			}
