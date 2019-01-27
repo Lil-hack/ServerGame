@@ -46,7 +46,7 @@ namespace MushroomsUnity3DExample {
             foreach (Player pl in Players) {
 				if(pl.ConnectUserId != player.ConnectUserId) {
 					pl.Send("PlayerJoined", player.ConnectUserId, 1, 1,0,0);
-					player.Send("PlayerJoined", pl.ConnectUserId, pl.posx,pl.posy, pl.posz,pl.skin);
+					player.Send("PlayerJoined", pl.ConnectUserId, pl.posx,pl.posy, pl.posz,pl.JoinData.Count);
 				}
 			}
 
