@@ -52,24 +52,45 @@ namespace MushroomsUnity3DExample {
             // respawn new toads each 5 seconds
             AddTimer(respawntoads, 5000);
             // reset game every 2 minutes
-           // AddTimer(resetgame, 120000);
-
+            AddTimer(resetgame, 10000);
 
 
         }
 
-       
-
-        public void respawntoads()
+        private void resetgame()
         {
-           // if (Toads.Count == 10)
-           //     return;
+            // scoring system
+            Player winner = new Player();
+            int maxscore = -1;
+            foreach (Player pl in Players)
+            {
+                if (pl.toadspicked > maxscore)
+                {
+                    winner = pl;
+                    maxscore = pl.toadspicked;
+                }
+            }
+
+       
+            // reset everyone's score
+            foreach (Player pl in Players)
+            {
+                pl.toadspicked = 0;
+            }
+            Broadcast("ToadCount", 0);
+        }
+
+        private void respawntoads()
+        {
+            if (Toads.Count == 10)
+                return;
 
             System.Random random = new System.Random();
             // create new toads if there are less than 10
-          
-                int px = random.Next(-50, 50);
-                int pz = random.Next(50, -50);
+            for (int x = 0; x < 10 - Toads.Count; x++)
+            {
+                int px = random.Next(-9, 9);
+                int pz = random.Next(-9, 9);
                 Toad temp = new Toad();
                 temp.id = last_toad_id;
                 temp.posx = px;
@@ -79,12 +100,11 @@ namespace MushroomsUnity3DExample {
 
                 // broadcast new toad information to all players
                 Broadcast("Toad", temp.id, temp.posx, temp.posz);
-            
+            }
         }
 
 
 
-        
         // This method is called when the last player leaves the room, and it's closed down.
         public override void GameClosed() {
 			Console.WriteLine("RoomId: " + RoomId);
