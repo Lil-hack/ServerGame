@@ -79,7 +79,13 @@ namespace MushroomsUnity3DExample {
                     player.roty = message.GetFloat(3);
                     Broadcast("Move", player.ConnectUserId, player.posx, player.posy, player.posz,player.roty);
 					break;
-               
+
+                case "Rotation":
+
+                    player.roty = message.GetFloat(0);
+                    Broadcast("Rotation", player.ConnectUserId, player.roty);
+                    break;
+
 
 
             }
