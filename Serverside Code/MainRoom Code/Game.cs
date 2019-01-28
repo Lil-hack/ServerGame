@@ -5,9 +5,10 @@ using PlayerIO.GameLibrary;
 namespace MushroomsUnity3DExample {
 
 	public class Player : BasePlayer {
-		public float posx = 1;
+		public float posx = 0;
 		 public float posy = 0;
         public float posz = 0;
+        public float roty = 0;
         public float skin = 0;
 
 
@@ -45,12 +46,14 @@ namespace MushroomsUnity3DExample {
             player.posx = (float) Convert.ToDouble(player.JoinData["posx"]);
             player.posy = (float) Convert.ToDouble(player.JoinData["posy"]);
             player.posz = (float) Convert.ToDouble(player.JoinData["posz"]);
+            player.roty = (float) Convert.ToDouble(player.JoinData["roty"]);
             player.skin = (float) Convert.ToDouble(player.JoinData["skin"]);
+
             foreach (Player pl in Players) {
      
                 if (pl.ConnectUserId != player.ConnectUserId) {
-					pl.Send("PlayerJoined", player.ConnectUserId, player.posx, player.posy, player.posz, player.skin);
-					player.Send("PlayerJoined", pl.ConnectUserId, pl.posx,pl.posy, pl.posz, Convert.ToDouble(pl.JoinData["skin"]));
+					pl.Send("PlayerJoined", player.ConnectUserId, player.posx, player.posy, player.posz, player.roty, player.skin);
+					player.Send("PlayerJoined", pl.ConnectUserId, pl.posx,pl.posy, pl.posz,pl.roty, Convert.ToDouble(pl.JoinData["skin"]));
 				}
 			}
 
@@ -73,20 +76,10 @@ namespace MushroomsUnity3DExample {
 					player.posx = message.GetFloat(0);
                     player.posy = message.GetFloat(1);
                     player.posz = message.GetFloat(2);
-           
-                    Broadcast("Move", player.ConnectUserId, player.posx, player.posy, player.posz);
+                    player.roty = message.GetFloat(3);
+                    Broadcast("Move", player.ConnectUserId, player.posx, player.posy, player.posz,player.roty);
 					break;
                
-                case "Rotation":
-              
-
-                    Broadcast("Rotation", player.ConnectUserId, message.GetFloat(0));
-                    break;
-
-                case "Skin":
-          
-                   player.skin=message.GetInt(0);
-                    break;
 
 
             }
