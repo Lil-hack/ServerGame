@@ -62,8 +62,8 @@ namespace MushroomsUnity3DExample {
 
         public void respawntoads()
         {
-            if (Toads.Count == 10)
-                return;
+           // if (Toads.Count == 10)
+           //     return;
 
             System.Random random = new System.Random();
             // create new toads if there are less than 10
