@@ -60,15 +60,14 @@ namespace MushroomsUnity3DExample {
 
        
 
-        private void respawntoads()
+        public void respawntoads()
         {
             if (Toads.Count == 10)
                 return;
 
             System.Random random = new System.Random();
             // create new toads if there are less than 10
-            for (int x = 0; x < 10 - Toads.Count; x++)
-            {
+          
                 int px = random.Next(-50, 50);
                 int pz = random.Next(50, -50);
                 Toad temp = new Toad();
@@ -80,7 +79,7 @@ namespace MushroomsUnity3DExample {
 
                 // broadcast new toad information to all players
                 Broadcast("Toad", temp.id, temp.posx, temp.posz);
-            }
+            
         }
 
 
