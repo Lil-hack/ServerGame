@@ -35,7 +35,7 @@ namespace MushroomsUnity3DExample {
 
             // spawn 10 toads at server start
             System.Random random = new System.Random();
-            for (int x = 0; x < 10; x++)
+            for (int x = 0; x < 15; x++)
             {
 
                 int px = random.Next(-50, 50);
