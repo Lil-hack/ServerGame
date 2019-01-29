@@ -166,8 +166,11 @@ namespace MushroomsUnity3DExample {
                     player.roty = message.GetFloat(0);
                     Broadcast("Rotation", player.ConnectUserId, player.roty);
                     break;
+                case "GetMoney":
+                  
+                    player.Send("GetMoney", player.toadspicked);
+                    break;
 
-     
                 case "Pickup":
                     // called when the player is actually close to the harvesting node
                     int pickupid = int.Parse(message.GetString(0).Replace("Toad", ""));
