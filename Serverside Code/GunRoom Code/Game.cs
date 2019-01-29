@@ -94,8 +94,17 @@ namespace MushroomsUnity3DExample {
                     player.Send("PlayerJoined", pl.ConnectUserId, pl.posx, pl.posy, pl.posz, pl.roty, Convert.ToDouble(pl.JoinData["skin"]));
                 }
             }
+            player.team = teamname;
+            if (teamname == 2)
+            {
+                foreach (Player pl in Players)
+                {
+          
+                    pl.Send("Round", pl.team);
 
-            player.Send("Team", teamname);
+                }
+            }
+
         
 
         }
@@ -115,7 +124,7 @@ namespace MushroomsUnity3DExample {
                 {
                     pl.hp = 100;
                     pl.Send("Restart", 100, pl.win, pl.lose);
-                    pl.Send("Team", pl.team);
+                    pl.Send("Round", pl.team);
                 }
                 gameStatus = true;
             }
@@ -123,7 +132,7 @@ namespace MushroomsUnity3DExample {
                 foreach (Player pl in Players)
                 {
                     pl.hp = 100;
-                    pl.Send("StopGame", 100, pl.win, pl.lose);
+                    pl.Send("EndGame", 100, pl.win, pl.lose);
              
                 }
                 }
