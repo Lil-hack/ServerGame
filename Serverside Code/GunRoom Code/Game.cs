@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using PlayerIO.GameLibrary;
 
+
 namespace MushroomsUnity3DExample {
 	public class Player : BasePlayer {
         public float posx = 0;
@@ -11,6 +12,8 @@ namespace MushroomsUnity3DExample {
         public float skin = 0;
         public int hp = 100;
         public int win = 0;
+        public int lose = 0;
+        public int team = 0;
 
     }
 
@@ -18,8 +21,9 @@ namespace MushroomsUnity3DExample {
 
 	[RoomType("GunTypeOne")]
 	public class GameCode : Game<Player> {
-        private int countMatchs = 5;
-
+        private int countMatchs = 0;
+        private int teamname = 0;
+        private bool gameStatus = true;
 		// This method is called when an instance of your the game is created
 		public override void GameStarted() {
           
@@ -74,6 +78,7 @@ namespace MushroomsUnity3DExample {
 
 		// This method is called whenever a player joins the game
 		public override void UserJoined(Player player) {
+            teamname++;
             player.posx = (float)Convert.ToDouble(player.JoinData["posx"]);
             player.posy = (float)Convert.ToDouble(player.JoinData["posy"]);
             player.posz = (float)Convert.ToDouble(player.JoinData["posz"]);
@@ -89,15 +94,42 @@ namespace MushroomsUnity3DExample {
                     player.Send("PlayerJoined", pl.ConnectUserId, pl.posx, pl.posy, pl.posz, pl.roty, Convert.ToDouble(pl.JoinData["skin"]));
                 }
             }
+
+            player.Send("Team", teamname);
+        
+
         }
 
-		// This method is called when a player leaves the game
-		public override void UserLeft(Player player) {
+        // This method is called when a player leaves the game
+        public override void UserLeft(Player player) {
 			Broadcast("PlayerLeft", player.ConnectUserId);
 		}
-
-		// This method is called when a player sends a message into the server code
-		public override void GotMessage(Player player, Message message) {
+        public void RestartGame()
+        {
+            if (gameStatus == true)
+                return;
+            if (countMatchs < 5)
+            {
+                countMatchs++;
+                foreach (Player pl in Players)
+                {
+                    pl.hp = 100;
+                    pl.Send("Restart", 100, pl.win, pl.lose);
+                    pl.Send("Team", pl.team);
+                }
+                gameStatus = true;
+            }
+            else {
+                foreach (Player pl in Players)
+                {
+                    pl.hp = 100;
+                    pl.Send("StopGame", 100, pl.win, pl.lose);
+             
+                }
+                }
+        }
+        // This method is called when a player sends a message into the server code
+        public override void GotMessage(Player player, Message message) {
 			switch(message.Type) {
                 // called when a player clicks on the ground
                 case "Move":
@@ -121,18 +153,28 @@ namespace MushroomsUnity3DExample {
                 case "Fire":
                     foreach (Player pl in Players)
                     {
-
-                        if (pl.ConnectUserId == message.GetString(0))
+                        if (gameStatus == true)
                         {
-                            if(message.GetInt(1)==1)
-                            pl.hp -= 10;
-                            if (message.GetInt(1) == 2)
-                                pl.hp -= 30;
-                            if (pl.hp < 0)
+
+                            if (pl.ConnectUserId == message.GetString(0))
                             {
-                                Broadcast("Die", player.ConnectUserId, pl.ConnectUserId);
+                                if (message.GetInt(1) == 1)
+                                    pl.hp -= 10;
+                                if (message.GetInt(1) == 2)
+                                    pl.hp -= 30;
+                                if (pl.hp < 0)
+                                {
+                                    gameStatus = false;
+                                    player.win++;
+                                    pl.lose++;
+                                    // создаем таймер
+                                    AddTimer(RestartGame, 10000);
+                                    Broadcast("Die", player.ConnectUserId, pl.ConnectUserId);
+
+
+                                }
+                                Broadcast("Fire", player.ConnectUserId, pl.ConnectUserId, pl.hp);
                             }
-                            Broadcast("Fire", player.ConnectUserId, pl.ConnectUserId, pl.hp);
                         }
                     }
                     
@@ -144,6 +186,8 @@ namespace MushroomsUnity3DExample {
 				
 			
 			}
+
+           
 		}
 	}
 }
