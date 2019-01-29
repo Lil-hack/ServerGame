@@ -119,14 +119,26 @@ namespace MushroomsUnity3DExample {
                     break;
 
                 case "Fire":
+                    foreach (Player pl in Players)
+                    {
 
-                    Broadcast("Fire", player.ConnectUserId, message.GetString(0), message.GetInt(1));
+                        if (pl.ConnectUserId == message.GetString(0))
+                        {
+                            if(message.GetInt(1)==1)
+                            pl.hp -= 10;
+                            if (message.GetInt(1) == 2)
+                                pl.hp -= 30;
+                            if (pl.hp < 0)
+                            {
+                                Broadcast("Die", player.ConnectUserId, pl.ConnectUserId);
+                            }
+                            Broadcast("Fire", player.ConnectUserId, pl.ConnectUserId, pl.hp);
+                        }
+                    }
+                    
                     break;
                
-                case "Die":
-
-                    Broadcast("Die", player.ConnectUserId);
-                    break;
+              
              
                 
 				
