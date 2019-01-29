@@ -171,7 +171,7 @@ namespace MushroomsUnity3DExample {
                                     pl.hp -= 10;
                                 if (message.GetInt(1) == 2)
                                     pl.hp -= 30;
-                                if (pl.hp < 0)
+                                if (pl.hp <= 0)
                                 {
                                     gameStatus = false;
                                     player.win++;
@@ -182,7 +182,9 @@ namespace MushroomsUnity3DExample {
 
 
                                 }
-                                Broadcast("Fire", player.ConnectUserId, pl.ConnectUserId, pl.hp);
+                                else {
+                                    Broadcast("Fire", player.ConnectUserId, pl.ConnectUserId, pl.hp); }
+                               
                             }
                         }
                     }
