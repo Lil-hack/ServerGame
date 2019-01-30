@@ -117,13 +117,14 @@ namespace MushroomsUnity3DExample {
         {
             if (gameStatus == true)
                 return;
+
             if (countMatchs < 5)
             {
                 countMatchs++;
                 foreach (Player pl in Players)
                 {
                     pl.hp = 100;
-                    pl.Send("Restart", 100, pl.win, pl.lose);
+                    pl.Send("Restart", pl.hp, pl.win, pl.lose);
                     pl.Send("Round", pl.team);
                 }
                 gameStatus = true;
@@ -158,7 +159,16 @@ namespace MushroomsUnity3DExample {
 
                  //   player.Send("GetMoney", player.toadspicked);
                     break;
+                case "FireBall":
+                    Broadcast("FireBall", message.GetFloat(0), 
+                        message.GetFloat(1),
+                        message.GetFloat(2),
+                        message.GetFloat(3),
+                        message.GetFloat(4),
+                        message.GetFloat(5));
 
+                 
+                    break;
                 case "Fire":
                     foreach (Player pl in Players)
                     {
