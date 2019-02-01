@@ -191,7 +191,7 @@ namespace MushroomsUnity3DExample {
                                     player.win++;
                                     pl.lose++;
                                     // создаем таймер
-                                    AddTimer(RestartGame, 10000);
+                                    AddTimer(RestartGame, 70000);
                                     Broadcast("Die", player.ConnectUserId, pl.ConnectUserId);
                                     Broadcast("Fire", player.ConnectUserId, pl.ConnectUserId, pl.hp);
 
