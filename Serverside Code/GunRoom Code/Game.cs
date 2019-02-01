@@ -118,7 +118,7 @@ namespace MushroomsUnity3DExample {
             if (gameStatus == true)
                 return;
 
-            if (countMatchs < 5)
+            if (countMatchs < 3)
             {
                 countMatchs++;
                 foreach (Player pl in Players)
@@ -133,7 +133,7 @@ namespace MushroomsUnity3DExample {
                 foreach (Player pl in Players)
                 {
                     pl.hp = 100;
-                    pl.Send("EndGame", 100, pl.win, pl.lose);
+                    pl.Send("EndGame", pl.win, pl.lose);
              
                 }
                 }
@@ -178,7 +178,7 @@ namespace MushroomsUnity3DExample {
                             if (pl.ConnectUserId == message.GetString(0))
                             {
                                 if (message.GetInt(1) == 1)
-                                    pl.hp -= 10;
+                                    pl.hp -= 20;
                                 if (message.GetInt(1) == 2)
                                     pl.hp -= 30;
                                 if (pl.hp <= 0)
@@ -189,6 +189,7 @@ namespace MushroomsUnity3DExample {
                                     // создаем таймер
                                     AddTimer(RestartGame, 10000);
                                     Broadcast("Die", player.ConnectUserId, pl.ConnectUserId);
+                                    Broadcast("Fire", player.ConnectUserId, pl.ConnectUserId, pl.hp);
 
 
                                 }
