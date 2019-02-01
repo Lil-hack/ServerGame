@@ -24,6 +24,7 @@ namespace MushroomsUnity3DExample {
         private int countMatchs = 0;
         private int teamname = 0;
         private bool gameStatus = true;
+        private bool metkaEnd=true;
 		// This method is called when an instance of your the game is created
 		public override void GameStarted() {
           
@@ -130,11 +131,14 @@ namespace MushroomsUnity3DExample {
                 gameStatus = true;
             }
             else {
+                if (metkaEnd == false)
+                    return;
+
                 foreach (Player pl in Players)
                 {
                     pl.hp = 100;
                     pl.Send("EndGame", pl.win, pl.lose);
-             
+                    metkaEnd = false;
                 }
                 }
         }
