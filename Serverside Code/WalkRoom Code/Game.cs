@@ -38,8 +38,8 @@ namespace MushroomsUnity3DExample {
             for (int x = 0; x < 10; x++)
             {
 
-                int px = random.Next(-50, 50);
-                int pz = random.Next(-50, 50);
+                int px = random.Next(-22, 88);
+                int pz = random.Next(-70, 70);
                 Toad temp = new Toad();
                 temp.id = last_toad_id;
                 temp.posx = px;
@@ -89,8 +89,8 @@ namespace MushroomsUnity3DExample {
             // create new toads if there are less than 10
             for (int x = 0; x < 10 - Toads.Count; x++)
             {
-                int px = random.Next(-9, 9);
-                int pz = random.Next(-9, 9);
+                int px = random.Next(-22, 88);
+                int pz = random.Next(-70, 70);
                 Toad temp = new Toad();
                 temp.id = last_toad_id;
                 temp.posx = px;
