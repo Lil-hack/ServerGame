@@ -36,17 +36,17 @@ namespace MushroomsUnity3DExample {
 	
 
 			// respawn new toads each 5 seconds
-			AddTimer(respawntoads, 5000);
+			//AddTimer(respawntoads, 5000);
 			// reset game every 2 minutes
-			AddTimer(resetgame, 120000);
+			//AddTimer(resetgame, 120000);
 
 
 		}
 
-		private void resetgame() {
+		//private void resetgame() {
 			// scoring system
-			Player winner = new Player();
-			int maxscore = -1;
+		//	Player winner = new Player();
+		//	int maxscore = -1;
 		//	foreach(Player pl in Players) {
 		//		if(pl.toadspicked > maxscore) {
 		//			winner = pl;
@@ -66,11 +66,11 @@ namespace MushroomsUnity3DExample {
 		//		pl.toadspicked = 0;
 		//	}
 		//	Broadcast("ToadCount", 0);
-		}
+		//}
 
-		private void respawntoads() {
+		//private void respawntoads() {
 			
-		}
+		//}
 
 		// This method is called when the last player leaves the room, and it's closed down.
 		public override void GameClosed() {
@@ -191,7 +191,7 @@ namespace MushroomsUnity3DExample {
                                     player.win++;
                                     pl.lose++;
                                     // создаем таймер
-                                    AddTimer(RestartGame, 7000);
+                                    AddTimer(RestartGame, 1000);
                                     Broadcast("Die", player.ConnectUserId, pl.ConnectUserId);
                                     Broadcast("Fire", player.ConnectUserId, pl.ConnectUserId, pl.hp);
 
