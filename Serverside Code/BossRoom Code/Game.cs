@@ -178,7 +178,7 @@ namespace MushroomsUnity3DExample
                                     
                                     // создаем таймер
                                     // AddTimer(RestartGame, 2000);
-                                    Broadcast("Win", true);
+                                    Broadcast("EndGame", true);
                                    
 
 
