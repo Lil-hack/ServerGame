@@ -19,19 +19,29 @@ namespace MushroomsUnity3DExample
 
     }
 
+    public class Boss
+    {
 
+        public float posx = 0;
+        public float posy = 0;
+        public float posz = 0;
+        public float roty = 0;
+        public int bossHP = 500;
+
+    }
 
     [RoomType("BossTypeRoom")]
     public class GameCode : Game<Player>
     {
-        private int bossHP = 500;
+       
        
         private bool gameStatus = true;
         private bool metkaEnd = true;
+        Boss boss = new Boss();
         // This method is called when an instance of your the game is created
         public override void GameStarted()
         {
-
+           
             // anything you write to the Console will show up in the 
             // output window of the development server
             Console.WriteLine("Game is started: " + RoomId);
@@ -154,15 +164,15 @@ namespace MushroomsUnity3DExample
 
                         if (message.GetInt(1) == 1)
                         {
-                            bossHP -= 20;
+                            boss.bossHP -= 20;
                         }
 
                         if (message.GetInt(1) == 2)
                         {
-                            bossHP -= 30;
+                            boss.bossHP -= 30;
                         }
                                  
-                                if (bossHP <= 0)
+                                if (boss.bossHP <= 0)
                                 {
                                     gameStatus = false;
                                     
@@ -175,7 +185,7 @@ namespace MushroomsUnity3DExample
                                 }
                                 else
                                 {
-                                    Broadcast("Fire", player.ConnectUserId, bossHP);
+                                    Broadcast("Fire", player.ConnectUserId, boss.bossHP);
                                 }
 
                             
