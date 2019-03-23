@@ -155,18 +155,17 @@ namespace MushroomsUnity3DExample
                             if (pl.ConnectUserId == message.GetString(0))
                             {
                                 if (message.GetInt(1) == 1)
-                                    pl.hp -= 20;
+                                    bossHP -= 20;
                                 if (message.GetInt(1) == 2)
-                                    pl.hp -= 30;
-                                if (pl.hp <= 0)
+                                    bossHP -= 30;
+                                if (bossHP <= 0)
                                 {
                                     gameStatus = false;
-                                    player.win++;
-                                    pl.lose++;
+                                    
                                     // создаем таймер
                                     // AddTimer(RestartGame, 2000);
-                                    Broadcast("Die", player.ConnectUserId, pl.ConnectUserId);
-                                    Broadcast("Fire", player.ConnectUserId, pl.ConnectUserId, pl.hp);
+                                    Broadcast("Win", true);
+                                   
 
 
                                 }
@@ -181,7 +180,17 @@ namespace MushroomsUnity3DExample
 
                     break;
 
+                case "GetDamage":
 
+                    player.hp -= 25;
+                    Broadcast("GetDamage", player.ConnectUserId, player.hp);
+
+                    if (player.hp <= 0)
+                    {
+                        player.Disconnect();
+                    }
+
+                        break;
 
 
 
