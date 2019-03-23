@@ -149,8 +149,7 @@ namespace MushroomsUnity3DExample
                     break;
                 case "Fire":
                    
-                        if (gameStatus == true)
-                        {
+                    
 
 
                         if (message.GetInt(1) == 1)
@@ -181,7 +180,7 @@ namespace MushroomsUnity3DExample
 
                             
                         
-                    }
+                    
 
                     break;
 
