@@ -49,7 +49,7 @@ namespace MushroomsUnity3DExample
 
 
             // respawn new toads each 5 seconds
-           AddTimer(moveBoss, 5000);
+           AddTimer(moveBoss, 15000);
             // reset game every 2 minutes
             //AddTimer(resetgame, 120000);
 
