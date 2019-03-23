@@ -169,7 +169,8 @@ namespace MushroomsUnity3DExample {
                         message.GetFloat(2),
                         message.GetFloat(3),
                         message.GetFloat(4),
-                        message.GetFloat(5));
+                        message.GetFloat(5),
+                        player.ConnectUserId);
 
                  
                     break;
@@ -191,7 +192,7 @@ namespace MushroomsUnity3DExample {
                                     player.win++;
                                     pl.lose++;
                                     // создаем таймер
-                                    AddTimer(RestartGame, 1000);
+                                    AddTimer(RestartGame, 2000);
                                     Broadcast("Die", player.ConnectUserId, pl.ConnectUserId);
                                     Broadcast("Fire", player.ConnectUserId, pl.ConnectUserId, pl.hp);
 
