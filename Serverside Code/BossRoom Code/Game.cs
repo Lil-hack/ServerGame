@@ -142,7 +142,8 @@ namespace MushroomsUnity3DExample
                         message.GetFloat(2),
                         message.GetFloat(3),
                         message.GetFloat(4),
-                        message.GetFloat(5));
+                        message.GetFloat(5),
+                        player.ConnectUserId);
 
 
                     break;
