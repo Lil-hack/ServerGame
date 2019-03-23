@@ -15,13 +15,13 @@ namespace MushroomsUnity3DExample
         public int hp = 100;
         public int win = 0;
         public int lose = 0;
-        public int team = 0;
+   
 
     }
 
 
 
-    [RoomType("BossTypeZero")]
+    [RoomType("BossTypeRoom")]
     public class GameCode : Game<Player>
     {
         private int bossHP = 500;
@@ -164,7 +164,7 @@ namespace MushroomsUnity3DExample
                                     player.win++;
                                     pl.lose++;
                                     // создаем таймер
-                                    AddTimer(RestartGame, 2000);
+                                    // AddTimer(RestartGame, 2000);
                                     Broadcast("Die", player.ConnectUserId, pl.ConnectUserId);
                                     Broadcast("Fire", player.ConnectUserId, pl.ConnectUserId, pl.hp);
 

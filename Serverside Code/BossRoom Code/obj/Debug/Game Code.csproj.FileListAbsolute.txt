@@ -45,3 +45,11 @@ C:\Users\Administrator\Documents\GitHub\ServerGame\Serverside Code\WalkRoom Code
 C:\Users\Administrator\Documents\GitHub\ServerGame\Serverside Code\WalkRoom Code\obj\Debug\Game Code.csproj.CopyComplete
 C:\Users\Administrator\Documents\GitHub\ServerGame\Serverside Code\WalkRoom Code\obj\Debug\MushroomsUnity3DExample.dll
 C:\Users\Administrator\Documents\GitHub\ServerGame\Serverside Code\WalkRoom Code\obj\Debug\MushroomsUnity3DExample.pdb
+C:\Users\Administrator\Documents\GitHub\ServerGame\Serverside Code\BossRoom Code\bin\Debug\MushroomsUnity3DExample.dll
+C:\Users\Administrator\Documents\GitHub\ServerGame\Serverside Code\BossRoom Code\bin\Debug\MushroomsUnity3DExample.pdb
+C:\Users\Administrator\Documents\GitHub\ServerGame\Serverside Code\BossRoom Code\bin\Debug\Player.IO GameLibrary.xml
+C:\Users\Administrator\Documents\GitHub\ServerGame\Serverside Code\BossRoom Code\obj\Debug\Game Code.csprojAssemblyReference.cache
+C:\Users\Administrator\Documents\GitHub\ServerGame\Serverside Code\BossRoom Code\obj\Debug\Game Code.csproj.CoreCompileInputs.cache
+C:\Users\Administrator\Documents\GitHub\ServerGame\Serverside Code\BossRoom Code\obj\Debug\Game Code.csproj.CopyComplete
+C:\Users\Administrator\Documents\GitHub\ServerGame\Serverside Code\BossRoom Code\obj\Debug\MushroomsUnity3DExample.dll
+C:\Users\Administrator\Documents\GitHub\ServerGame\Serverside Code\BossRoom Code\obj\Debug\MushroomsUnity3DExample.pdb
