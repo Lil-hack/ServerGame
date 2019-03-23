@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using PlayerIO.GameLibrary;
-
+using System.Linq;
 
 namespace MushroomsUnity3DExample
 {
@@ -13,8 +13,7 @@ namespace MushroomsUnity3DExample
         public float roty = 0;
         public float skin = 0;
         public int hp = 100;
-        public int win = 0;
-        public int lose = 0;
+      
    
 
     }
@@ -50,7 +49,7 @@ namespace MushroomsUnity3DExample
 
 
             // respawn new toads each 5 seconds
-            //AddTimer(respawntoads, 5000);
+           AddTimer(moveBoss, 5000);
             // reset game every 2 minutes
             //AddTimer(resetgame, 120000);
 
@@ -76,15 +75,19 @@ namespace MushroomsUnity3DExample
         //	}
 
         // reset everyone's score
-        //	foreach(Player pl in Players) {
-        //		pl.toadspicked = 0;
-        //	}
+   
         //	Broadcast("ToadCount", 0);
         //}
 
-        //private void respawntoads() {
+        private void moveBoss() {
+            Random random = new Random();
+            int randomNumber = random.Next(0, PlayerCount);
+           var heroPos= Players.ElementAt(randomNumber);
+            Broadcast("MoveBoss", heroPos.posx, heroPos.posz);
 
-        //}
+
+
+        }
 
         // This method is called when the last player leaves the room, and it's closed down.
         public override void GameClosed()
@@ -136,6 +139,7 @@ namespace MushroomsUnity3DExample
                     player.roty = message.GetFloat(3);
                     Broadcast("Move", player.ConnectUserId, player.posx, player.posy, player.posz, player.roty);
                     break;
+               
 
                 case "Rotation":
 
@@ -157,11 +161,15 @@ namespace MushroomsUnity3DExample
 
 
                     break;
+                case "Start":
+                    gameStatus = true;
+                    Broadcast("Start", true);
+                    break;
                 case "Fire":
-                   
-                    
 
 
+                    if (gameStatus == true)
+                    {
                         if (message.GetInt(1) == 1)
                         {
                             boss.bossHP -= 20;
@@ -171,24 +179,24 @@ namespace MushroomsUnity3DExample
                         {
                             boss.bossHP -= 30;
                         }
-                                 
-                                if (boss.bossHP <= 0)
-                                {
-                                    gameStatus = false;
-                                    
-                                    // создаем таймер
-                                    // AddTimer(RestartGame, 2000);
-                                    Broadcast("EndGame", true);
-                                   
+
+                        if (boss.bossHP <= 0)
+                        {
+                            gameStatus = false;
+
+                            // создаем таймер
+                            // AddTimer(RestartGame, 2000);
+                            Broadcast("EndGame", true);
 
 
-                                }
-                                else
-                                {
-                                    Broadcast("Fire", player.ConnectUserId, boss.bossHP);
-                                }
 
-                            
+                        }
+                        else
+                        {
+                            Broadcast("Fire", player.ConnectUserId, boss.bossHP);
+                        }
+
+                    }
                         
                     
 
