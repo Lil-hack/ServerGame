@@ -148,17 +148,21 @@ namespace MushroomsUnity3DExample
 
                     break;
                 case "Fire":
-                    foreach (Player pl in Players)
-                    {
+                   
                         if (gameStatus == true)
                         {
 
-                            if (pl.ConnectUserId == message.GetString(0))
-                            {
-                                if (message.GetInt(1) == 1)
-                                    bossHP -= 20;
-                                if (message.GetInt(1) == 2)
-                                    bossHP -= 30;
+
+                        if (message.GetInt(1) == 1)
+                        {
+                            bossHP -= 20;
+                        }
+
+                        if (message.GetInt(1) == 2)
+                        {
+                            bossHP -= 30;
+                        }
+                                 
                                 if (bossHP <= 0)
                                 {
                                     gameStatus = false;
@@ -172,11 +176,11 @@ namespace MushroomsUnity3DExample
                                 }
                                 else
                                 {
-                                    Broadcast("Fire", player.ConnectUserId, pl.ConnectUserId, pl.hp,bossHP);
+                                    Broadcast("Fire", player.ConnectUserId, bossHP);
                                 }
 
-                            }
-                        }
+                            
+                        
                     }
 
                     break;
