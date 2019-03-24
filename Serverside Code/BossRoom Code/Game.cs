@@ -49,7 +49,7 @@ namespace MushroomsUnity3DExample
 
 
             // respawn new toads each 5 seconds
-           AddTimer(moveBoss, 15000);
+           AddTimer(moveBoss, 10000);
             // reset game every 2 minutes
             //AddTimer(resetgame, 120000);
 
@@ -80,10 +80,13 @@ namespace MushroomsUnity3DExample
         //}
 
         private void moveBoss() {
-            Random random = new Random();
-            int randomNumber = random.Next(0, PlayerCount);
-           var heroPos= Players.ElementAt(randomNumber);
-            Broadcast("MoveBoss", heroPos.posx, heroPos.posz);
+            if (gameStatus == true)
+            {
+                Random random = new Random();
+                int randomNumber = random.Next(0, PlayerCount);
+                var heroPos = Players.ElementAt(randomNumber);
+                Broadcast("MoveBoss", heroPos.posx, heroPos.posz);
+            }
 
 
 
