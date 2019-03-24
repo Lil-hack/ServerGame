@@ -13,7 +13,7 @@ namespace MushroomsUnity3DExample
         public float roty = 0;
         public float skin = 0;
         public int hp = 100;
-      
+        public int weapon = 0;
    
 
     }
@@ -49,7 +49,7 @@ namespace MushroomsUnity3DExample
 
 
             // respawn new toads each 5 seconds
-           AddTimer(moveBoss, 10000);
+           
             // reset game every 2 minutes
             //AddTimer(resetgame, 120000);
 
@@ -166,6 +166,8 @@ namespace MushroomsUnity3DExample
                     break;
                 case "Start":
                     gameStatus = true;
+                    Random random = new Random();
+                    AddTimer(moveBoss, random.Next(10, 15)*1000);
                     Broadcast("Start", true);
                     break;
                 case "Fire":
