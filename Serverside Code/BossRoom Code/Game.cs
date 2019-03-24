@@ -34,7 +34,7 @@ namespace MushroomsUnity3DExample
     {
        
        
-        private bool gameStatus = true;
+        private bool gameStatus = false;
         private bool metkaEnd = true;
         Boss boss = new Boss();
         // This method is called when an instance of your the game is created
