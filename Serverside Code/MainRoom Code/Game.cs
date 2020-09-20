@@ -10,12 +10,10 @@ namespace MushroomsUnity3DExample {
         public float posz = 0;
         public float roty = 0;
         public float skin = 0;
-
-
     }
 
 	
-	[RoomType("OceanRoom")]
+	[RoomType("OceanRoom2")]
 	public class GameCode : Game<Player> {
 
 		// This method is called when an instance of your the game is created

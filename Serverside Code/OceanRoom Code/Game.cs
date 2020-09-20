@@ -15,7 +15,7 @@ namespace MushroomsUnity3DExample {
     }
 
 	
-	[RoomType("MainRoom")]
+	[RoomType("OceanRoom")]
 	public class GameCode : Game<Player> {
 
 		// This method is called when an instance of your the game is created

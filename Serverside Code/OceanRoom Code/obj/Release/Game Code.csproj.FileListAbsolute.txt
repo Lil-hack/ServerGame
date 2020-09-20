@@ -15,3 +15,10 @@ C:\Users\akashkin\Desktop\ServerMyGame\Serverside Code\Game Code\obj\Release\Gam
 C:\Users\akashkin\Desktop\ServerMyGame\Serverside Code\Game Code\obj\Release\MushroomsUnity3DExample.dll
 C:\Users\akashkin\Desktop\ServerMyGame\Serverside Code\Game Code\obj\Release\MushroomsUnity3DExample.pdb
 C:\Users\akashkin\Desktop\ServerMyGame\Serverside Code\Game Code\obj\Release\Game Code.csprojAssemblyReference.cache
+C:\Users\Administrator\Documents\GitHub\ServerGame\Serverside Code\OceanRoom Code\bin\Release\MushroomsUnity3DExample.dll
+C:\Users\Administrator\Documents\GitHub\ServerGame\Serverside Code\OceanRoom Code\bin\Release\MushroomsUnity3DExample.pdb
+C:\Users\Administrator\Documents\GitHub\ServerGame\Serverside Code\OceanRoom Code\obj\Release\Game Code.csprojAssemblyReference.cache
+C:\Users\Administrator\Documents\GitHub\ServerGame\Serverside Code\OceanRoom Code\obj\Release\MushroomsUnity3DExample.dll
+C:\Users\Administrator\Documents\GitHub\ServerGame\Serverside Code\OceanRoom Code\obj\Release\MushroomsUnity3DExample.pdb
+C:\Users\Administrator\Documents\GitHub\ServerGame\Serverside Code\OceanRoom Code\bin\Release\Player.IO GameLibrary.xml
+C:\Users\Administrator\Documents\GitHub\ServerGame\Serverside Code\OceanRoom Code\obj\Release\Game Code.csproj.CopyComplete
